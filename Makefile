@@ -159,6 +159,13 @@ flann:
 	@echo "===> MAKING FLANN"
 	@$(MAKE) TAG=$(TAG) -s -C flann-1.7.1-src
 
+nlopt:
+	@echo "===> MAKING NLOPT"
+	@$(MAKE) TAG=$(TAG) -s -C nlopt-2.4.1
+
+clipper:
+	@echo "===> MAKING CLIPPER"
+	@$(MAKE) TAG=$(TAG) -s -C clipper_ver6.1.3a
 	
 ## Some hints
 #$@ The name of the target, which caused the rule to be processed.

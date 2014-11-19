@@ -3,7 +3,7 @@ IF (CMAKE_SYSTEM_NAME MATCHES "Linux")
 ExternalProject_Add(flann
 	SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/flann-1.7.1-src
 	BINARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/flann-1.7.1-src/build
-	INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/flann-1.7.1-src/lib
+	INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib
 	CONFIGURE_COMMAND cmake -D BUILD_C_BINDINGS=OFF -D CMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_SOURCE_DIR}/lib ..
 	BUILD_COMMAND $(MAKE)
 	INSTALL_COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/flann-1.7.1-src/build/lib/libflann_cpp_s.a ${CMAKE_CURRENT_SOURCE_DIR}/lib/libflann_cpp_s.a
@@ -15,6 +15,14 @@ ExternalProject_Add(nlopt
         CONFIGURE_COMMAND cmake -D BUILD_C_BINDINGS=OFF -D CMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_SOURCE_DIR}/lib ..
         BUILD_COMMAND $(MAKE)
         INSTALL_COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/nlopt-2.4.1/build/libnlopt.a ${CMAKE_CURRENT_SOURCE_DIR}/lib/libnlopt.a
+)
+ExternalProject_Add(clipper
+        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/clipper_ver6.1.3a/cpp
+        BINARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/clipper_ver6.1.3a/build
+        INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib
+        CONFIGURE_COMMAND cmake -D BUILD_C_BINDINGS=OFF -D CMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_SOURCE_DIR}/lib ../cpp
+        BUILD_COMMAND $(MAKE)
+        INSTALL_COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/clipper_ver6.1.3a/build/libpolyclipping.a ${CMAKE_CURRENT_SOURCE_DIR}/lib
 )
 # ExternalProject_Add(nlopt
 #         SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/nlopt-2.4.1
@@ -69,6 +77,8 @@ ExternalProject_Get_Property(flann SOURCE_DIR)
 MACRO_APPEND_GLOBAL_VARIABLE(EMPIRE_thirdparty_INCLUDES "${SOURCE_DIR}/src/cpp")
 ExternalProject_Get_Property(nlopt SOURCE_DIR)
 MACRO_APPEND_GLOBAL_VARIABLE(EMPIRE_thirdparty_INCLUDES "${SOURCE_DIR}/api")
+ExternalProject_Get_Property(clipper SOURCE_DIR)
+MACRO_APPEND_GLOBAL_VARIABLE(EMPIRE_thirdparty_INCLUDES "${SOURCE_DIR}")
 # MACRO_APPEND_GLOBAL_VARIABLE(EMPIRE_thirdparty_INCLUDES "${SOURCE_DIR}/include")
 #------------------------------------------------------------------------------------#
 get_property(EMPIRE_thirdparty_INCLUDES GLOBAL PROPERTY EMPIRE_thirdparty_INCLUDES) 
@@ -96,6 +106,7 @@ add_library(EMPIRE_thirdparty OBJECT ${EMPIRE_thirdparty_SOURCES})
 # Add dependencies to targets
 add_dependencies(EMPIRE_thirdparty flann)
 add_dependencies(EMPIRE_thirdparty nlopt)
+add_dependencies(EMPIRE_thirdparty clipper)
 #------------------------------------------------------------------------------------#
 #MESSAGE("C Compiler Flags for EMPIRE_thirdparty are:\t${CMAKE_C_FLAGS} \nC++ Compiler Flags for EMPIRE_thirdparty are:\t${CMAKE_CXX_FLAGS}")
 #MESSAGE("EMPIRE_thirdparty_INCLUDES: ${EMPIRE_thirdparty_INCLUDES}")
