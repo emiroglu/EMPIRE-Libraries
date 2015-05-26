@@ -12,9 +12,9 @@ ExternalProject_Add(nlopt
         SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/nlopt-2.4.1
         BINARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/nlopt-2.4.1/build
         INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib
-        CONFIGURE_COMMAND cmake -D BUILD_C_BINDINGS=OFF -D CMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_SOURCE_DIR}/lib ..
+        CONFIGURE_COMMAND cmake -D BUILD_C_BINDINGS=ON -D CMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_SOURCE_DIR}/lib ..
         BUILD_COMMAND $(MAKE)
-        INSTALL_COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/nlopt-2.4.1/build/libnlopt.a ${CMAKE_CURRENT_SOURCE_DIR}/lib/libnlopt.a
+        #INSTALL_COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/nlopt-2.4.1/build/libnlopt.a ${CMAKE_CURRENT_SOURCE_DIR}/lib/libnlopt.a
 )
 ExternalProject_Add(clipper
         SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/clipper_ver6.1.3a/cpp
@@ -23,6 +23,10 @@ ExternalProject_Add(clipper
         CONFIGURE_COMMAND cmake -D BUILD_C_BINDINGS=OFF -D CMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_SOURCE_DIR}/lib ../cpp
         BUILD_COMMAND $(MAKE)
         INSTALL_COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/clipper_ver6.1.3a/build/libpolyclipping.a ${CMAKE_CURRENT_SOURCE_DIR}/lib
+)
+ExternalProject_Add(eigen
+        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Eigen
+        INSTALL_COMMAND make
 )
 # ExternalProject_Add(nlopt
 #         SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/nlopt-2.4.1
@@ -67,17 +71,26 @@ ENDFOREACH()
 add_subdirectory(ticpp) # TODO
 add_subdirectory(cppunit)
 add_subdirectory(dataCreator)
+add_subdirectory(Eigen)
 #------------------------------------------------------------------------------------#
 IF (${USE_INTEL_COMPILERS_MKL_IMPI_LINUX})
   SET (CMAKE_C_COMPILER "icc")
   SET (CMAKE_CXX_COMPILER "icpc")
 ENDIF()
+
+IF (${USE_GNU_COMPILERS_EINGEN_LINUX})
+  SET (CMAKE_C_COMPILER "gcc")
+  SET (CMAKE_CXX_COMPILER "g++")
+ENDIF()
+
 #------------------------------------------------------------------------------------#
 ExternalProject_Get_Property(flann SOURCE_DIR)
 MACRO_APPEND_GLOBAL_VARIABLE(EMPIRE_thirdparty_INCLUDES "${SOURCE_DIR}/src/cpp")
 ExternalProject_Get_Property(nlopt SOURCE_DIR)
 MACRO_APPEND_GLOBAL_VARIABLE(EMPIRE_thirdparty_INCLUDES "${SOURCE_DIR}/api")
 ExternalProject_Get_Property(clipper SOURCE_DIR)
+MACRO_APPEND_GLOBAL_VARIABLE(EMPIRE_thirdparty_INCLUDES "${SOURCE_DIR}")
+ExternalProject_Get_Property(eigen SOURCE_DIR)
 MACRO_APPEND_GLOBAL_VARIABLE(EMPIRE_thirdparty_INCLUDES "${SOURCE_DIR}")
 # MACRO_APPEND_GLOBAL_VARIABLE(EMPIRE_thirdparty_INCLUDES "${SOURCE_DIR}/include")
 #------------------------------------------------------------------------------------#
@@ -107,6 +120,7 @@ add_library(EMPIRE_thirdparty OBJECT ${EMPIRE_thirdparty_SOURCES})
 add_dependencies(EMPIRE_thirdparty flann)
 add_dependencies(EMPIRE_thirdparty nlopt)
 add_dependencies(EMPIRE_thirdparty clipper)
+add_dependencies(EMPIRE_thirdparty eigen)
 #------------------------------------------------------------------------------------#
 #MESSAGE("C Compiler Flags for EMPIRE_thirdparty are:\t${CMAKE_C_FLAGS} \nC++ Compiler Flags for EMPIRE_thirdparty are:\t${CMAKE_CXX_FLAGS}")
 #MESSAGE("EMPIRE_thirdparty_INCLUDES: ${EMPIRE_thirdparty_INCLUDES}")

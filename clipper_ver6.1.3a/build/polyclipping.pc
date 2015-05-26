@@ -1,0 +1,13 @@
+prefix=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib
+exec_prefix=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib
+libdir=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/lib
+sharedlibdir=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/lib
+includedir=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/include/polyclipping
+
+Name: polyclipping
+Description: polygon clipping library
+Version: 
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lpolyclipping
+Cflags: -I${includedir}/polyclipping

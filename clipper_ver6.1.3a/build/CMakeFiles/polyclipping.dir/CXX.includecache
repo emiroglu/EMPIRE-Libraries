@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/clipper_ver6.1.3a/cpp/clipper.cpp
+clipper.hpp
+/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/clipper_ver6.1.3a/cpp/clipper.hpp
+math.h
+-
+vector
+-
+algorithm
+-
+stdexcept
+-
+cstring
+-
+cstdlib
+-
+ostream
+-
+functional
+-
+
+/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/clipper_ver6.1.3a/cpp/clipper.hpp
+vector
+-
+set
+-
+stdexcept
+-
+cstring
+-
+cstdlib
+-
+ostream
+-
+functional
+-
+

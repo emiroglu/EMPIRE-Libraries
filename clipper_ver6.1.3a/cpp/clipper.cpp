@@ -39,7 +39,7 @@
 *******************************************************************************/
 
 #include "clipper.hpp"
-#include <cmath>
+#include <math.h>
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
@@ -717,7 +717,7 @@ bool IntersectPoint(TEdge &Edge1, TEdge &Edge2,
     b2 = Edge2.Bot.X - Edge2.Bot.Y * Edge2.Dx;
     double q = (b2-b1) / (Edge1.Dx - Edge2.Dx);
     ip.Y = Round(q);
-    if (std::fabs(Edge1.Dx) < std::fabs(Edge2.Dx))
+    if (fabs(Edge1.Dx) < fabs(Edge2.Dx))
       ip.X = Round(Edge1.Dx * q + b1);
     else 
       ip.X = Round(Edge2.Dx * q + b2);
@@ -729,7 +729,7 @@ bool IntersectPoint(TEdge &Edge1, TEdge &Edge2,
       ip.Y = Edge1.Top.Y;
     else
       ip.Y = Edge2.Top.Y;
-    if (std::fabs(Edge1.Dx) < std::fabs(Edge2.Dx))
+    if (fabs(Edge1.Dx) < fabs(Edge2.Dx))
       ip.X = TopX(Edge1, ip.Y);
     else
       ip.X = TopX(Edge2, ip.Y);
@@ -852,17 +852,17 @@ bool FirstIsBottomPt(const OutPt* btmPt1, const OutPt* btmPt2)
 {
   OutPt *p = btmPt1->Prev;
   while ((p->Pt == btmPt1->Pt) && (p != btmPt1)) p = p->Prev;
-  double dx1p = std::fabs(GetDx(btmPt1->Pt, p->Pt));
+  double dx1p = fabs(GetDx(btmPt1->Pt, p->Pt));
   p = btmPt1->Next;
   while ((p->Pt == btmPt1->Pt) && (p != btmPt1)) p = p->Next;
-  double dx1n = std::fabs(GetDx(btmPt1->Pt, p->Pt));
+  double dx1n = fabs(GetDx(btmPt1->Pt, p->Pt));
 
   p = btmPt2->Prev;
   while ((p->Pt == btmPt2->Pt) && (p != btmPt2)) p = p->Prev;
-  double dx2p = std::fabs(GetDx(btmPt2->Pt, p->Pt));
+  double dx2p = fabs(GetDx(btmPt2->Pt, p->Pt));
   p = btmPt2->Next;
   while ((p->Pt == btmPt2->Pt) && (p != btmPt2)) p = p->Next;
-  double dx2n = std::fabs(GetDx(btmPt2->Pt, p->Pt));
+  double dx2n = fabs(GetDx(btmPt2->Pt, p->Pt));
   return (dx1p >= dx2p && dx1p >= dx2n) || (dx1n >= dx2p && dx1n >= dx2n);
 }
 //------------------------------------------------------------------------------
@@ -2953,7 +2953,7 @@ void Clipper::BuildIntersectList(const cInt botY, const cInt topY)
         if (Pt.Y > botY)
         {
             Pt.Y = botY;
-            if (std::fabs(e->Dx) > std::fabs(eNext->Dx))
+            if (fabs(e->Dx) > fabs(eNext->Dx))
               Pt.X = TopX(*eNext, botY); else
               Pt.X = TopX(*e, botY);
         }
@@ -3792,7 +3792,7 @@ DoublePoint GetUnitNormal(const IntPoint &pt1, const IntPoint &pt2)
 
   double Dx = (double)(pt2.X - pt1.X);
   double dy = (double)(pt2.Y - pt1.Y);
-  double f = 1 *1.0/ std::sqrt( Dx*Dx + dy*dy );
+  double f = 1 *1.0/ sqrt( Dx*Dx + dy*dy );
   Dx *= f;
   dy *= f;
   return DoublePoint(dy, -Dx);
@@ -3998,19 +3998,22 @@ void ClipperOffset::DoOffset(double delta)
 
   double y;
   if (ArcTolerance <= 0.0) y = def_arc_tolerance;
-  else if (ArcTolerance > std::fabs(delta) * def_arc_tolerance) 
-    y = std::fabs(delta) * def_arc_tolerance;
+  else if (ArcTolerance > fabs(delta) * def_arc_tolerance)
+    y = fabs(delta) * def_arc_tolerance;
   else y = ArcTolerance;
   //see offset_triginometry2.svg in the documentation folder ...
-  double steps = pi / std::acos(1 - y / std::fabs(delta));
-  if (steps > std::fabs(delta) * pi) 
-    steps = std::fabs(delta) * pi;  //ie excessive precision check
-  m_sin = std::sin(two_pi / steps);
-  m_cos = std::cos(two_pi / steps);
+  double steps = pi / acos(1 - y / fabs(delta));
+  if (steps > fabs(delta) * pi)
+    steps = fabs(delta) * pi;  //ie excessive precision check
+  m_sin = sin(two_pi / steps);
   m_StepsPerRad = steps / two_pi;
+  //m_cos = cos(two_pi / steps);
+  m_cos = cos(1/m_StepsPerRad);
   if (delta < 0.0) m_sin = -m_sin;
 
   m_destPolys.reserve(m_polyNodes.ChildCount() * 2);
+
+
   for (int i = 0; i < m_polyNodes.ChildCount(); i++)
   {
     PolyNode& node = *m_polyNodes.Childs[i];
@@ -4181,7 +4184,7 @@ void ClipperOffset::OffsetPoint(int j, int& k, JoinType jointype)
 
 void ClipperOffset::DoSquare(int j, int k)
 {
-  double dx = std::tan(std::atan2(m_sinA,
+  double dx = tan(atan2(m_sinA,
       m_normals[k].X * m_normals[j].X + m_normals[k].Y * m_normals[j].Y) / 4);
   m_destPoly.push_back(IntPoint(
       Round(m_srcPoly[j].X + m_delta * (m_normals[k].X - m_normals[k].Y * dx)),
@@ -4202,9 +4205,9 @@ void ClipperOffset::DoMiter(int j, int k, double r)
 
 void ClipperOffset::DoRound(int j, int k)
 {
-  double a = std::atan2(m_sinA,
+  double a = atan2(m_sinA,
   m_normals[k].X * m_normals[j].X + m_normals[k].Y * m_normals[j].Y);
-  int steps = (int)Round(m_StepsPerRad * std::fabs(a));
+  int steps = (int)Round(m_StepsPerRad * fabs(a));
 
   double X = m_normals[k].X, Y = m_normals[k].Y, X2;
   for (int i = 0; i < steps; ++i)
@@ -4332,10 +4335,10 @@ double DistanceFromLineSqrd(
   const IntPoint& pt, const IntPoint& ln1, const IntPoint& ln2)
 {
   //The equation of a line in general form (Ax + By + C = 0)
-  //given 2 points (x¹,y¹) & (x²,y²) is ...
-  //(y¹ - y²)x + (x² - x¹)y + (y² - y¹)x¹ - (x² - x¹)y¹ = 0
-  //A = (y¹ - y²); B = (x² - x¹); C = (y² - y¹)x¹ - (x² - x¹)y¹
-  //perpendicular distance of point (x³,y³) = (Ax³ + By³ + C)/Sqrt(A² + B²)
+  //given 2 points (xï¿½,yï¿½) & (xï¿½,yï¿½) is ...
+  //(yï¿½ - yï¿½)x + (xï¿½ - xï¿½)y + (yï¿½ - yï¿½)xï¿½ - (xï¿½ - xï¿½)yï¿½ = 0
+  //A = (yï¿½ - yï¿½); B = (xï¿½ - xï¿½); C = (yï¿½ - yï¿½)xï¿½ - (xï¿½ - xï¿½)yï¿½
+  //perpendicular distance of point (xï¿½,yï¿½) = (Axï¿½ + Byï¿½ + C)/Sqrt(Aï¿½ + Bï¿½)
   //see http://en.wikipedia.org/wiki/Perpendicular_distance
   double A = double(ln1.Y - ln2.Y);
   double B = double(ln2.X - ln1.X);
