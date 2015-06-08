@@ -14,7 +14,7 @@ ExternalProject_Add(nlopt
         INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib
         CONFIGURE_COMMAND cmake -D BUILD_C_BINDINGS=ON -D CMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_SOURCE_DIR}/lib ..
         BUILD_COMMAND $(MAKE)
-        #INSTALL_COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/nlopt-2.4.1/build/libnlopt.a ${CMAKE_CURRENT_SOURCE_DIR}/lib/libnlopt.a
+        INSTALL_COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/nlopt-2.4.1/build/libnlopt.a ${CMAKE_CURRENT_SOURCE_DIR}/lib/libnlopt.a
 )
 ExternalProject_Add(clipper
         SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/clipper_ver6.1.3a/cpp
