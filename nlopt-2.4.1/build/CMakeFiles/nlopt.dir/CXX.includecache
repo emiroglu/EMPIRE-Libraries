@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+..//config.h
+
 ../api/nlopt.h
 stddef.h
 -
@@ -20,7 +22,7 @@ config.h
 nlopt.h
 ../util/nlopt.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.cc
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.cc
 iostream
 -
 iterator
@@ -30,31 +32,31 @@ algorithm
 stack
 -
 stogo_config.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo_config.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo_config.h
 global.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
 local.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/local.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/local.h
 nlopt-util.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/nlopt-util.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/nlopt-util.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
 nlopt-util.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/nlopt-util.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/nlopt-util.h
 queue
 -
 tools.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/linalg.cc
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/linalg.cc
 iostream
 -
 math.h
 -
 linalg.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/linalg.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/linalg.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/linalg.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/linalg.h
 iostream
 -
 math.h
@@ -62,51 +64,51 @@ math.h
 float.h
 -
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/local.cc
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/local.cc
 iostream
 -
 stdlib.h
 -
 stogo_config.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo_config.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo_config.h
 global.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
 local.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/local.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/local.h
 tools.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
 nlopt.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/nlopt.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/nlopt.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/local.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/local.h
 tools.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
 global.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo.cc
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo.cc
 stogo.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo.h
 global.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/global.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo.h
 nlopt-util.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/nlopt-util.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/nlopt-util.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo_config.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo_config.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.cc
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.cc
 float.h
 -
 iostream
 -
 stogo_config.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo_config.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/stogo_config.h
 tools.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
 
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/tools.h
 float.h
 -
 iostream
@@ -118,7 +120,5 @@ iterator
 list
 -
 linalg.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/nlopt-2.4.1/stogo/linalg.h
-
-config.h
+/home/emiroglu/software/empire_new/EMPIRE-Libraries/nlopt-2.4.1/stogo/linalg.h
 

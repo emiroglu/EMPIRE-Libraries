@@ -1,8 +1,8 @@
-prefix=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib
-exec_prefix=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib
-libdir=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/lib
-sharedlibdir=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/lib
-includedir=/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/include/polyclipping
+prefix=/home/emiroglu/software/empire_new/EMPIRE-Libraries/lib
+exec_prefix=/home/emiroglu/software/empire_new/EMPIRE-Libraries/lib
+libdir=/home/emiroglu/software/empire_new/EMPIRE-Libraries/lib/lib
+sharedlibdir=/home/emiroglu/software/empire_new/EMPIRE-Libraries/lib/lib
+includedir=/home/emiroglu/software/empire_new/EMPIRE-Libraries/lib/include/polyclipping
 
 Name: polyclipping
 Description: polygon clipping library

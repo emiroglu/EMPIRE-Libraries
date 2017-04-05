@@ -1,2 +1,2 @@
-/usr/bin/ar cr libpolyclipping.a  CMakeFiles/polyclipping.dir/clipper.cpp.o
+/usr/bin/ar qc libpolyclipping.a  CMakeFiles/polyclipping.dir/clipper.cpp.o
 /usr/bin/ranlib libpolyclipping.a

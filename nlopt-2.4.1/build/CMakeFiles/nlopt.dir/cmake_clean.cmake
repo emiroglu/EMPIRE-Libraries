@@ -1,4 +1,4 @@
-FILE(REMOVE_RECURSE
+file(REMOVE_RECURSE
   "CMakeFiles/nlopt.dir/direct/DIRect.c.o"
   "CMakeFiles/nlopt.dir/direct/direct_wrap.c.o"
   "CMakeFiles/nlopt.dir/direct/DIRserial.c.o"
@@ -46,6 +46,6 @@ FILE(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-FOREACH(lang C CXX)
-  INCLUDE(CMakeFiles/nlopt.dir/cmake_clean_${lang}.cmake OPTIONAL)
-ENDFOREACH(lang)
+foreach(lang C CXX)
+  include(CMakeFiles/nlopt.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
