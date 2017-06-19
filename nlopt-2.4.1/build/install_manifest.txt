@@ -1,4 +1,0 @@
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/include/nlopt.h
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/include/nlopt.hpp
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/include/nlopt.f
-/home/aditya/experiments/empireCoading/empireEigen/EMPIRE-Libraries/lib/lib/libnlopt.a
